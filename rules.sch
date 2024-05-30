@@ -32,6 +32,25 @@
                 </sqf:add>
             </sqf:fix>
         </sch:rule>
+
+  
+        <sch:rule context="image[@keyref]">
+            <sch:report test="not(alt)" role="war" sqf:fix="image-alt-keyref">图像没有补充文本.<sch:value-of select="ditaaccess:getKeyRefAbsoluteReference(@keyref, base-uri())"/> </sch:report>
+            <sqf:fix id="image-alt-keyref">
+                <sqf:description>
+                    <sqf:title>Add alternate text</sqf:title>
+                </sqf:description>
+                <sqf:add match="." position="last-child">
+                    <alt>
+                        <xsl:value-of select="
+                            ai:transform-content(
+                            '为这张图像创建一个简短的补充文本描述:',
+                            concat('${attach(', ditaaccess:getKeyRefAbsoluteReference(@keyref, base-uri()), ')}'))"/>
+                    </alt>
+                </sqf:add>
+            </sqf:fix>
+        </sch:rule>
+
     </sch:pattern>
     <!-- Rule 3: 标点符号 should not start with punctuation -->
     <sch:pattern>
