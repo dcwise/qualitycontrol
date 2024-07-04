@@ -54,4 +54,15 @@
 
 免责: 使用者自己负责必要的调整或者优化。北京镭内容公司对此不承担任何风险或者责任。且如果使用，需要援引来自本公司-北京镭内容信息科技有限公司。
 
+<div class="highlight highlight-source-shell">
+<pre>
+<span class="pl-c"># Load vfio-pci module</span>
+sudo modprobe vfio-pci
 
+<span class="pl-c"># Unbind device from current driver</span>
+<span class="pl-c1">echo</span> 0000:3a:00.4 | sudo tee /sys/bus/pci/devices/0000:3a:00.4/driver/unbind
+
+<span class="pl-c"># Bind device to vfio-pci driver</span>
+<span class="pl-c1">echo</span> 0x1d22 0x3690 | sudo tee /sys/bus/pci/drivers/vfio-pci/new_id
+</pre>
+</div>
