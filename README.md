@@ -1,3 +1,10 @@
+提交了 Schematron，其效果如图：
+
+![image](https://github.com/user-attachments/assets/b4ec6aef-d1c9-4c28-bb03-e1c0d3dec4da)
+
+
+
+
 因为 AIGC 很自然被普遍感到适合文档开发使用。为此，北京镭试图探索并证明了在文档开发的质量控制阶段的应用。
 此 Schematron 规则集包含了一些常见的 DITA XML 文档编写约束规则,总共包含14条规则。下面逐条进行解释:
 
